@@ -1,0 +1,29 @@
+.sonnetBlocker {
+  /* Positioning: Fill the entire video area */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10; /* Ensure it sits on top of the video */
+
+  /* The Glass Effect */
+  background-color: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
+  backdrop-filter: blur(15px); /* This blurs the video underneath */
+  -webkit-backdrop-filter: blur(15px); /* Safari support */
+
+  /* Centering the Poem */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  font-family: 'Georgia', serif;
+  text-align: center;
+  padding: 20px;
+}
+
+#poem-text {
+  white-space: pre-wrap; /* Keeps the line breaks from the API */
+  font-size: 1.2rem;
+  line-height: 1.5;
+}

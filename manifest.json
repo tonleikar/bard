@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Poetic Ad Blocker",
+  "version": "1.0",
+  "description": "Replaces YouTube ads with classic sonnets.",
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
