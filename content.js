@@ -63,7 +63,7 @@ const watchForAds = () => {
         currentSonnetBlocker = document.createElement('div');
         currentSonnetBlocker.className = "sonnetBlocker";
         currentSonnetBlocker.innerHTML = `<div class="poem-container">Summoning the muses...</div>`;
-        videoFrame.appendChild(currentSonnetBlocker);
+        currentSonnetBlocker.appendChild(videoFrame);
         getSonnet().then(html => {
           const poemDisplay = currentSonnetBlocker.querySelector(".poem-container");
           if (poemDisplay) poemDisplay.innerHTML = html;
