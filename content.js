@@ -12,6 +12,7 @@ style.textContent = `
     justify-content: center;
     font-size: 2rem;
     line-height: 1.5;
+    z-index: 2147483647;
     backdrop-filter: blur(10px);
     }
     .poem-container {
@@ -26,9 +27,8 @@ style.textContent = `
 
 document.head.appendChild(style);
 
-const url = "https://poetrydb.org/title,random/Sonnet;1";
+const url = "https://poetrydb.org/linecount,random/3;1";
 let currentSonnetBlocker = null;
-let standardPlaybackRate = 1.0;
 const muteButton = document.querySelector('.ytp-volume-icon');
 
 const getSonnet = async () => {
@@ -65,50 +65,35 @@ const removeBlocker = () => {
   }
 }
 
-const clickButton = (btn) => {
-  if (btn) {
-  ['mousedown', 'mouseup', 'click'].forEach(eventType => {
-    btn.dispatchEvent(new MouseEvent(eventType, {
-      view: window,
-      bubbles: true,
-      cancelable: true,
-      buttons: 1
-    }));
-  });
-}
-}
-
-
 const adWatcher = () => {
   console.log("poeticAd monitoring started");
 
+  // const skipButton = document.querySelector(".ytp-ad-skip-button-modern, .ytp-skip-ad-button, .ytp-ad-skip-button");
   const videoElement = document.querySelector("video");
-  const isAdPlaying = document.querySelector('.ad-showing') !== null;
-  const skipButton = document.querySelector(".ytp-ad-skip-button-modern, .ytp-skip-ad-button, .ytp-ad-skip-button");
+  const isAdPlaying = document.querySelector('.ad-showing, .ad-interrupting');
 
-  console.log(skipButton);
-
+  // if (skipButton) {
+  //   skipButton.click();
+  //   removeBlocker();
+  // }
   if (!videoElement) return;
-
   if (isAdPlaying) {
     console.log("poeticAd: ad is playing")
     if (muteButton && muteButton.dataset.titleNoTooltip === "Mute") {
       muteButton.click();
     }
-    if (skipButton && skipButton.offsetParent !== null) {
-      clickButton(skipButton);
-    }
     if (!currentSonnetBlocker) {
-        currentSonnetBlocker = createBlocker()
-        document.body.insertAdjacentElement("afterbegin", currentSonnetBlocker)
-        getSonnet().then(html => {
-          const poemDisplay = document.querySelector(".poem-container");
-          poemDisplay.innerHTML = html;
-        });
-      }
+      currentSonnetBlocker = createBlocker()
+      document.body.insertAdjacentElement("afterbegin", currentSonnetBlocker)
+      getSonnet().then(html => {
+        const poemDisplay = document.querySelector(".poem-container");
+        poemDisplay.innerHTML = html;
+      });
+    }
   } else if (!isAdPlaying) {
+    console.log("poeticAd: No advert")
     removeBlocker();
   }
 }
 
-setInterval(adWatcher(), 500)
+setInterval(adWatcher, 1000)
