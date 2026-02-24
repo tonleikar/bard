@@ -1,19 +1,14 @@
 {
   "manifest_version": 3,
-  "name": "Poetic Ad Blocker",
-  "version": "1.0",
-  "description": "Replaces YouTube ads with classic sonnets.",
-  "host_permissions": ["*://*.youtube.com/*", "https://poetrydb.org/*"],
-  "permissions": ["storage", "tabs"],
+  "name": "poeticAd",
+  "version": "0.5",
+  "description": "Cover ads with a sonnet",
+  "permissions": [],
   "content_scripts": [
     {
-      "matches": ["*://*.youtube.com/*"],
+      "matches": ["https://www.youtube.com/*"],
       "js": ["content.js"],
-      "run_at": "document_start"
+      "run_at": "document_end"
     }
-
-  ],
-  "background": {
-    "service_worker": "background.js"
-  }
+  ]
 }
