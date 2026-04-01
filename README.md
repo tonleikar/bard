@@ -1,10 +1,12 @@
-bard
-bard is a browser extension designed to transform your ad-break experience. Instead of simply blocking advertisements, bard mutes the audio and applies a soft blur to the page, overlaying a classic sonnet for you to enjoy until your content returns.
-🚀 Future Features
-We are constantly working to make your waiting time more poetic. Planned updates include:
- * Expanded Compatibility: Adding support for additional streaming services.
- * Custom Content: Options to swap sonnets for good news headlines or motivational quotes.
- * Visual Customization: * Toggle the background blur on or off.
-   * Full control over fonts, colors, and the overall UI theme.
-> “Beauty is truth, truth beauty,—that is all / Ye know on earth, and all ye need to know.”
-> 
+# bard
+
+Hide adverts behind a sonnet. Instead of blocking the advert completely, **bard** mutes and blurs the page whilst displaying a sonnet.
+
+## 🚀 Future Features
+
+* **Expand Support:** Add support for more streaming services (itv, prime video).
+* **Text options:** Choose different text styles, such as:
+    * Good news
+    * Motivational quotes
+* **Customisation:** * Toggle background blur on/off
+    * Change fonts and color schemes
