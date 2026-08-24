@@ -11,4 +11,13 @@
       "run_at": "document_end"
     }
   ]
+  "action": {
+    "default_icon": {
+      "16": "assets/bard-logo.png",
+      "24": "assets/bard-logo.png",
+      "32": "assets/bard-logo.png"
+    },
+    "default_title": "My YT Bookmarks",
+    "default_popup": "popup.html"
+  }
 }
