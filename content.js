@@ -50,7 +50,7 @@ const getSonnet = async () => {
 };
 
 const createBlocker = () => {
-  console.log("poeticAd: making block")
+  console.log("bard: making block")
   const sonnetBlocker = document.createElement('div');
   sonnetBlocker.className = "sonnetBlocker";
   sonnetBlocker.innerHTML = `<div class="poem-container">trying to rhyme orange...</div>`;
@@ -59,7 +59,7 @@ const createBlocker = () => {
 }
 
 const removeBlocker = () => {
-  console.log("poeticAd: removing block")
+  console.log("bard: removing block")
   const blocker = document.querySelector(".sonnetBlocker");
   if (blocker) {
     blocker.remove();
@@ -72,7 +72,7 @@ const removeBlocker = () => {
 }
 
 const adWatcher = () => {
-  console.log("poeticAd monitoring started");
+  console.log("bard monitoring started");
 
   const videoElement = document.querySelector("video");
   const isAdPlaying = document.querySelector('.ad-showing, .ad-interrupting');
@@ -83,7 +83,7 @@ const adWatcher = () => {
   // }
   if (!videoElement) return;
   if (isAdPlaying) {
-    console.log("poeticAd: ad is playing")
+    console.log("bard: ad is playing")
     if (muteButton && muteButton.dataset.titleNoTooltip === "Mute") {
       muteButton.click();
     }
@@ -96,7 +96,7 @@ const adWatcher = () => {
       });
     }
   } else if (!isAdPlaying) {
-    console.log("poeticAd: No advert")
+    console.log("bard: No advert")
     removeBlocker();
   }
 }
