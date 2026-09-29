@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "poeticAd",
+  "name": "bard",
   "version": "0.5",
   "description": "Cover ads with a sonnet",
   "permissions": [],
@@ -10,14 +10,14 @@
       "js": ["content.js"],
       "run_at": "document_end"
     }
-  ]
+  ],
   "action": {
     "default_icon": {
       "16": "assets/bard-logo.png",
       "24": "assets/bard-logo.png",
       "32": "assets/bard-logo.png"
     },
-    "default_title": "My YT Bookmarks",
+    "default_title": "bard",
     "default_popup": "popup.html"
   }
 }
