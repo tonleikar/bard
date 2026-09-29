@@ -3,7 +3,7 @@
   "name": "bard",
   "version": "0.5",
   "description": "Cover ads with a sonnet",
-  "permissions": [],
+  "permissions": ["storage", "tabs", "activeTab"],
   "content_scripts": [
     {
       "matches": ["https://www.youtube.com/*"],
