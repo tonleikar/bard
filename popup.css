@@ -1,0 +1,14 @@
+:root {
+  --onyx: #100d15ff;
+  --rich-mahogany: #451d10ff;
+  --brandy: #72341dff;
+  --desert-sand: #e2bca1ff;
+  --pale-slate: #cacad3ff;
+}
+
+body {
+  width: 1200px;
+  height: 860px;
+  border-radius: 10px;
+  background-color: blue;
+}
