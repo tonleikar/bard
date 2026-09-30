@@ -10,14 +10,92 @@
         <img src="assets/bard-logo.png" alt="bard logo" class="bard-logo">
         <h1>bard</h1>
       </div>
-      <p>the poetic ad-blocker</p>
+      <p class="tagline">the poetic ad-blocker</p>
     </header>
     <main>
-      <ul>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-      </ul>
+      <div class="column">
+        <section class="settings-group">
+          <h2>sites</h2>
+          <ul class="toggle-list">
+            <li class="toggle-row">
+              <span class="toggle-row-label">YouTube</span>
+              <label class="switch">
+                <input type="checkbox" checked>
+                <span class="switch-track"><span class="switch-thumb"></span></span>
+              </label>
+            </li>
+            <li class="toggle-row is-disabled">
+              <span class="toggle-row-label">ITV <em>soon</em></span>
+              <label class="switch">
+                <input type="checkbox" disabled>
+                <span class="switch-track"><span class="switch-thumb"></span></span>
+              </label>
+            </li>
+            <li class="toggle-row is-disabled">
+              <span class="toggle-row-label">Channel 4 <em>soon</em></span>
+              <label class="switch">
+                <input type="checkbox" disabled>
+                <span class="switch-track"><span class="switch-thumb"></span></span>
+              </label>
+            </li>
+          </ul>
+        </section>
+
+        <section class="settings-group">
+          <h2>verse</h2>
+          <ul class="radio-list">
+            <li>
+              <label class="radio-row">
+                <input type="radio" name="source" value="poetry" checked>
+                <span class="radio-dot"></span>
+                poetry
+              </label>
+            </li>
+            <li>
+              <label class="radio-row">
+                <input type="radio" name="source" value="quotes">
+                <span class="radio-dot"></span>
+                quotes
+              </label>
+            </li>
+            <li>
+              <label class="radio-row">
+                <input type="radio" name="source" value="lyrics">
+                <span class="radio-dot"></span>
+                lyrics
+              </label>
+            </li>
+            <li>
+              <label class="radio-row">
+                <input type="radio" name="source" value="other">
+                <span class="radio-dot"></span>
+                other
+              </label>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="column">
+        <section class="settings-group">
+          <h2>appearance</h2>
+          <div class="setting-row">
+            <span class="setting-label">blur background</span>
+            <label class="switch">
+              <input type="checkbox" checked>
+              <span class="switch-track"><span class="switch-thumb"></span></span>
+            </label>
+          </div>
+          <div class="setting-row">
+            <label for="overlay-color" class="setting-label">overlay colour</label>
+            <input type="color" id="overlay-color" class="color-swatch" value="#451d10">
+          </div>
+          <div class="setting-row">
+            <label for="text-color" class="setting-label">text colour</label>
+            <input type="color" id="text-color" class="color-swatch" value="#e2bca1">
+          </div>
+        </section>
+      </div>
     </main>
   </div>
   <script type="module" src="popup.js"></script>

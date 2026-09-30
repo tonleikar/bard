@@ -8,14 +8,27 @@
   --pale-slate: #cacad3ff;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   width: 600px;
   height: 430px;
   border-radius: 10px;
-  background-color: var(--onyx);
+  overflow: hidden;
+  background-color: var(--pale-slate);
   color: var(--pale-slate);
+  font-family: "Noto Sans", sans-serif;
   padding: 0;
   margin: 0;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
@@ -24,15 +37,15 @@ header {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  padding: 0.5rem 1rem 0.5rem 1rem;
-  border-radius: 10px 10px 0 0;
+  padding: 0.5rem 1rem;
   margin: 0;
+  flex: 0 0 auto;
 }
 
 header h1 {
   font-family: "Pirata One", system-ui;
-  size: 24px;
-  margin: 0 1rem 0 1rem;
+  font-size: 30px;
+  margin: 0 1rem;
   padding: 0;
   line-height: 1;
 }
@@ -43,32 +56,217 @@ header img {
   height: 40px;
 }
 
-header p {
+.tagline {
   padding: 0;
   margin: 0;
   font-family: "Noto Sans", sans-serif;
-}
-
-main {
-  padding-block: 1rem;
-  height: 100%;
-  width: 100%;
-  background-color: var(--pale-slate);
-  margin: 0;
-  color: var(--onyx);
-  font-family: "Noto Sans", sans-serif;
+  font-style: italic;
+  font-size: 0.8rem;
+  color: var(--desert-sand);
+  opacity: 0.85;
 }
 
 .logo-type {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: flex-start;
   margin: 0;
   padding: 0;
-
 }
 
-.container {
-  height: 100%;
-  width: 100%;
+main {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  background-color: var(--brandy);
+  margin: 0;
+  padding: 1.25rem 1.5rem;
+  color: var(--pale-slate);
+  font-family: "Noto Sans", sans-serif;
+}
+
+.column {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.column:first-child {
+  padding-right: 1.25rem;
+  border-right: 1px solid rgba(226, 188, 161, 0.2);
+}
+
+.column:last-child {
+  padding-left: 1.25rem;
+}
+
+.settings-group {
+  margin-bottom: 1.5rem;
+}
+
+.settings-group h2 {
+  font-family: "Pirata One", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--desert-sand);
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid rgba(226, 188, 161, 0.25);
+}
+
+.toggle-list,
+.radio-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.toggle-row,
+.setting-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+}
+
+.setting-row {
+  margin-bottom: 0.7rem;
+}
+
+.setting-row:last-child {
+  margin-bottom: 0;
+}
+
+.toggle-row.is-disabled {
+  opacity: 0.45;
+}
+
+.toggle-row-label em {
+  font-style: normal;
+  font-size: 0.6rem;
+  margin-left: 0.4rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.radio-row {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-size: 0.85rem;
+  text-transform: lowercase;
+  cursor: pointer;
+}
+
+.radio-row input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.radio-dot {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  border: 2px solid var(--pale-slate);
+  position: relative;
+  transition: border-color 0.2s ease;
+}
+
+.radio-row input:checked + .radio-dot {
+  border-color: var(--desert-sand);
+}
+
+.radio-row input:checked + .radio-dot::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: 50%;
+  background-color: var(--desert-sand);
+}
+
+.switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
+.switch input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch-track {
+  width: 34px;
+  height: 18px;
+  border-radius: 999px;
+  background-color: var(--onyx);
+  position: relative;
+  display: inline-block;
+  transition: background-color 0.2s ease;
+}
+
+.switch-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--pale-slate);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.switch input:checked + .switch-track {
+  background-color: var(--desert-sand);
+}
+
+.switch input:checked + .switch-track .switch-thumb {
+  transform: translateX(16px);
+  background-color: var(--rich-mahogany);
+}
+
+.switch input:disabled + .switch-track {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.setting-label {
+  font-size: 0.85rem;
+}
+
+.color-swatch {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+
+.color-swatch::-webkit-color-swatch-wrapper {
+  padding: 0;
+  border-radius: 50%;
+}
+
+.color-swatch::-webkit-color-swatch {
+  border: 2px solid var(--pale-slate);
+  border-radius: 50%;
 }
